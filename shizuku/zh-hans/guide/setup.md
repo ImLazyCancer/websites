@@ -73,20 +73,49 @@ Android 调试桥 (`adb`) 是一个通用命令行工具，其允许您与模拟
 
 ### 2. 安装 `adb`
 
+#### 输入 `adb` 如果可以看到一长串内容而不是提示找不到 adb 则表示成功
+
 #### 2.1. Windows
 
 1. 下载由 Google 提供的 [SDK Platform Tools](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) 并解压至任意文件夹
-2. 使用资源管理器打开文件夹，按住 Shift 点击右键选择“在此处打开 PowerShell 窗口”（如果是 Windows 7 则是“在此处打开命令行窗口”）
-3. 输入 `adb` 如果可以看到一长串内容而不是提示找不到 adb 则表示成功
+
+以下步骤用于登录账户有管理员权限
+2. 打开 控制面板->系统和安全->系统->高级安全设置->高级->环境变量，在“系统变量”的列表里选择"Path"->编辑
+3. “编辑环境变量”窗口里，Windows 10上再选择“编辑”，以下输入`;`。然后输入文件夹的地址。逐级应用和确定，重启电脑。打开 命令提示符 或 PowerShell 。
+
+或
+2.使用资源管理器打开文件夹，按住 Shift 点击右键选择“在此处打开 PowerShell 窗口”（如果是 Windows 7 则是“在此处打开命令行窗口”）
 
 ::: tip 提示
-1. 请不要关闭该窗口，后面提到的“终端”都是指此窗口（如果关闭请重新进行第 2 步）。
+1. 用第二种方法请不要关闭该窗口，后面提到的“终端”都是指此窗口（如果关闭请重新进行第 2 步）。
 2. 如果使用 PowerShell，所有 `adb` 都要替换成 `./adb`。
 :::
 
-#### 2.2. Linux / macOS
+#### 2.2. Linux
 
-你们一定可以自己解决 :D
+1. 打开终端
+2. 输入 `sudo apt-get install android-tools-adb`，如果出现error：“Unable to locate package android-tools-adb”，先输入
+   mount -o remount rw /
+   mount -o remount rw /system
+   sudo nano /etc/apt/sources.list
+   sudo apt-get update
+
+或
+1. 下载由 Google 提供的 [SDK Platform Tools](https://dl.google.com/android/repository/platform-tools-latest-linux.zip) 并解压至任意文件夹 
+2.  打开文件夹，右键选择“在此打开终端”
+
+::: tip 提示
+用第二种方法请不要关闭该窗口，后面提到的“终端”都是指此窗口（如果关闭请重新进行第 2 步）。
+:::
+
+#### 2.3. Mac
+
+1. 下载由 Google 提供的 [SDK Platform Tools](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip) 并解压至任意文件夹 
+2.  打开文件夹，右键选择“在此打开终端” 
+
+::: tip 提示
+请不要关闭该窗口，后面提到的“终端”都是指此窗口（如果关闭请重新进行第 2 步）。
+:::
 
 ### 3. 设置 `adb`
 
@@ -149,3 +178,6 @@ adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/files/start.sh
 #### Sony 设备
 
 不要点击连接 USB 后弹出的对话框。
+
+
+
